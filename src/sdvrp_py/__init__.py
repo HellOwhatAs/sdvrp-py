@@ -1,4 +1,5 @@
 from typing import Optional, Literal
+from itertools import chain
 from sdvrp_py import rstypes
 import sdvrp_py._core
 
@@ -47,6 +48,24 @@ def solve_sdvrp(
 ) -> list[list[tuple[int, int]]]:
     assert not distance_matrix is coord_list is None
     assert isinstance(ruin_method_args, dict if ruin_method_type == "SISRs" else list)
+    if distance_matrix is not None:
+        assert all(
+            (len(distance_matrix) == len(row) == len(demands) + 1)
+            for row in distance_matrix
+        )
+        assert all(
+            distance_matrix[i][j] == distance_matrix[j][i]
+            for i in range(len(distance_matrix))
+            for j in range(i)
+        )
+    else:
+        assert len(coord_list) == len(demands) + 1
+
+    flat_dist_matrix = (
+        list(chain.from_iterable(distance_matrix))
+        if distance_matrix is not None
+        else []
+    )
 
     return sdvrp_py._core.solve_sdvrp(
         random_seed=random_seed,
@@ -71,7 +90,7 @@ def solve_sdvrp(
         capacity=capacity,
         demands=demands,
         input_format="DENSE_MATRIX" if distance_matrix is not None else "COORD_LIST",
-        distance_matrix=distance_matrix if distance_matrix is not None else [],
+        distance_matrix=flat_dist_matrix if distance_matrix is not None else [],
         coord_list_x=(
             [coord[0] for coord in coord_list] if coord_list is not None else []
         ),
