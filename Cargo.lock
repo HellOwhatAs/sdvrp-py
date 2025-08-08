@@ -305,9 +305,9 @@ checksum = "d68f2ec51b097e4c1a75b681a8bec621909b5e91f15bb7b840c4f2f7b01148b2"
 
 [[package]]
 name = "sdvrp"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2fd96cf9160f2de5332b98fe3fd8fdb22fa81341a312de8b89abcaa42b650a9d"
+checksum = "cadbcff14a4ee3457f38e0b973e4818a13d237acc97939a2b063788c46217755"
 dependencies = [
  "cxx",
  "cxx-build",
