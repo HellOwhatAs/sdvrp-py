@@ -20,16 +20,12 @@ jobs:
         platform:
           - runner: ubuntu-24.04
             target: x86_64
-          # - runner: ubuntu-24.04
-          #   target: x86
           - runner: ubuntu-24.04
             target: aarch64
-          # - runner: ubuntu-24.04
-          #   target: armv7
-          # - runner: ubuntu-24.04
-          #   target: s390x
-          # - runner: ubuntu-24.04
-          #   target: ppc64le
+          - runner: ubuntu-24.04
+            target: s390x
+          - runner: ubuntu-24.04
+            target: ppc64le
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -43,8 +39,8 @@ jobs:
           target: ${{ matrix.platform.target }}
           args: --release --out dist -i python3.{9..13}
           sccache: 'true'
-          manylinux: manylinux_2_34
-          container: quay.io/pypa/manylinux_2_34_${{ matrix.platform.target }}
+          manylinux: manylinux_2_28
+          container: quay.io/pypa/manylinux_2_28_${{ matrix.platform.target }}
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -158,11 +154,11 @@ jobs:
         with:
           files: 'wheels-*/*'
 
-      # - name: Publish to PyPI
-      #   if: ${{ startsWith(github.ref, 'refs/tags/') }}
-      #   uses: PyO3/maturin-action@v1
-      #   env:
-      #     MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-      #   with:
-      #     command: upload
-      #     args: --non-interactive --skip-existing wheels-*/*
+      - name: Publish to PyPI
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        uses: PyO3/maturin-action@v1
+        env:
+          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        with:
+          command: upload
+          args: --non-interactive --skip-existing wheels-*/*
