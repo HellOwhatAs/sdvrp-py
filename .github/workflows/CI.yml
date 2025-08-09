@@ -155,7 +155,7 @@ jobs:
       - name: Upload release assets
         uses: softprops/action-gh-release@v1
         with:
-          files: 'wheels-*/*'
+          files: 'wheels-*/*.whl'
 
       - name: Publish to PyPI
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
