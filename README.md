@@ -2,11 +2,11 @@
 Python binding of Rust binding of [Alkaid-SDVRP](https://github.com/HUST-Smart/Alkaid-SDVRP): An Efficient Open-Source Solver for the Vehicle Routing Problem with Split Deliveries.
 
 ## Install
-1. Install [Rust](https://www.rust-lang.org/tools/install) first.
-2. Install `sdvrp-py`.
-   ```
-   pip install git+https://github.com/HellOwhatAs/sdvrp-py.git
-   ```
+```
+pip install sdvrp-py
+```
+
+> If there are no precompiled wheels suitable for your platform, you need to [install Rust](https://www.rust-lang.org/tools/install) before running `pip install sdvrp-py`.
 
 ## Example
 ```py
