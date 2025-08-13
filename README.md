@@ -1,4 +1,12 @@
 # sdvrp-py
+
+<p>
+    <a href="https://pypi.org/project/sdvrp-py/"><img src="https://img.shields.io/pypi/v/sdvrp-py"/></a>
+    <a href="https://crates.io/crates/sdvrp"><img src="https://img.shields.io/crates/v/sdvrp" alt="crates.io"></a>
+    <a href="https://docs.rs/sdvrp/"><img src="https://docs.rs/sdvrp/badge.svg" alt="docs"></a>
+    <a href="https://github.com/HellOwhatAs/sdvrp-py/"><img src="https://img.shields.io/github/languages/top/HellOwhatAs/sdvrp-py"></a>
+</p>
+
 Python binding of Rust binding of [Alkaid-SDVRP](https://github.com/HUST-Smart/Alkaid-SDVRP): An Efficient Open-Source Solver for the Vehicle Routing Problem with Split Deliveries.
 
 ## Install

@@ -1,6 +1,7 @@
-from typing import Literal
+from typing import Literal, TypeAlias
 
-type InterOperator = Literal[
+
+InterOperator: TypeAlias = Literal[
     "Swap<2, 0>",
     "Swap<2, 1>",
     "Swap<2, 2>",
@@ -12,22 +13,22 @@ type InterOperator = Literal[
     "SdSwapTwoOne",
 ]
 
-type IntraOperator = Literal[
+IntraOperator: TypeAlias = Literal[
     "Exchange",
     "OrOpt<1>",
     "OrOpt<2>",
     "OrOpt<3>",
 ]
 
-type AcceptanceRuleType = Literal["HC", "HCWE", "LAHC", "SA"]
+AcceptanceRuleType: TypeAlias = Literal["HC", "HCWE", "LAHC", "SA"]
 
-type RuinMethodType = Literal["SISRs", "Random"]
+RuinMethodType: TypeAlias = Literal["SISRs", "Random"]
 
-type Sorter = Literal[
+Sorter: TypeAlias = Literal[
     "random",
     "demand",
     "far",
     "close",
 ]
 
-type InputFormat = Literal["DENSE_MATRIX", "COORD_LIST"]
+InputFormat: TypeAlias = Literal["DENSE_MATRIX", "COORD_LIST"]
